@@ -2,14 +2,21 @@
 
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is a simple business presentation of Nadine Brinner">
+    <meta name="author" content="Ralf Klammer">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/stylish-portfolio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agency.css' %}">
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,13 +32,17 @@
         require.config({
             baseUrl: "{% static 'js' %}",
             paths: {
-                'jQuery': 'jquery-3.2.1.min',
                 'boostrap': 'bootstrap.min',
                 'main': 'main',
+                'jquery.easing': 'jquery.easing.min',
+                'jQuery': 'jquery-3.2.1.min',
             },
             shim: {
                 'jQuery': {
                     exports: '$',
+                },
+                'jquery.easing': {
+                    deps: ['jQuery']
                 },
                 'bootstrap': {
                     deps: ['jQuery']
@@ -44,240 +55,386 @@
         });
     </script>
   </head>
-    <body>
+    <body id="page-top" class="index">
+
         <!-- Navigation -->
-        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-        <nav id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-                <li class="sidebar-brand">
-                    <a href="#top" onclick=$("#menu-close").click();>Die Lerntherapeutin</a>
-                </li>
-                <li>
-                    <a href="#top" onclick=$("#menu-close").click();>Home</a>
-                </li>
-                <li>
-                    <a href="#about" onclick=$("#menu-close").click();>&Uuml;ber</a>
-                </li>
-                <li>
-                    <a href="#services" onclick=$("#menu-close").click();>Angebote</a>
-                </li>
-                <li>
-                    <a href="#portfolio" onclick=$("#menu-close").click();>Portfolio</a>
-                </li>
-                <li>
-                    <a href="#contact" onclick=$("#menu-close").click();>Kontakt</a>
-                </li>
-            </ul>
+        <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Navigation öffnen</span> Menü <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">Deine Lerntherapeutin</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#philosophie">Philosophie</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#activity">Leistungen</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#team">Das bin ich</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#contact">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
         </nav>
 
         <!-- Header -->
-        <header id="top" class="header">
-            <div class="text-vertical-center">
-                <h1>Deine Lerntherapeutin</h1>
-                <h3>Damit Lernen wieder Spaß macht!</h3>
-                <br>
-                <a href="#about" class="btn btn-dark btn-lg">Hier gehts weiter</a>
+        <header>
+            <div class="container">
+                <div class="intro-text">
+                    <div class="intro-lead-in">Damit Lernen wieder Spaß macht!</div>
+                    <div class="intro-heading">Deine Lerntherapeutin</div>
+                    <a href="#philosophie" class="page-scroll btn btn-xl">Erfahre mehr</a>
+                </div>
             </div>
         </header>
 
-        <!-- About -->
-        <section id="about" class="about">
+        <!-- Philosophie Section -->
+        <section id="philosophie">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2>Hier muss eine griffige Kurzbeschreibung hin</h2>
-                        <p class="lead">Was zeichnet micht aus, was kann ich dir bieten...</p>
+                        <h2 class="section-heading">Meine Philosophie</h2>
+                        <h3 class="section-subheading text-muted">Kinder nehmen wie sie sind und ihre Stärken fördern.</h3>
                     </div>
                 </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container -->
-        </section>
-
-        <!-- Services -->
-        <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-        <section id="services" class="services bg-primary">
-            <div class="container">
                 <div class="row text-center">
-                    <div class="col-lg-10 col-lg-offset-1">
-                        <h2>Was ich so therapiere...</h2>
-                        <hr class="small">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6">
-                                <div class="service-item">
-                                    <span class="fa-stack fa-4x">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-cloud fa-stack-1x text-primary"></i>
-                                </span>
-                                    <h4>
-                                        <strong>ADHS</strong>
-                                    </h4>
-                                    <p>Kurze Beschreibung wie man es versteht. Hinter dem Link kann man dann mehr erfahren.</p>
-                                    <a href="#" class="btn btn-light">Mehr erfahren...</a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="service-item">
-                                    <span class="fa-stack fa-4x">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-compass fa-stack-1x text-primary"></i>
-                                </span>
-                                    <h4>
-                                        <strong>LRS</strong>
-                                    </h4>
-                                    <p>Kurze Beschreibung wie man es versteht. Hinter dem Link kann man dann mehr erfahren.</p>
-                                    <a href="#" class="btn btn-light">Mehr erfahren...</a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="service-item">
-                                    <span class="fa-stack fa-4x">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-flask fa-stack-1x text-primary"></i>
-                                </span>
-                                    <h4>
-                                        <strong>Dyskalulie</strong>
-                                    </h4>
-                                    <p>Kurze Beschreibung wie man es versteht. Hinter dem Link kann man dann mehr erfahren.</p>
-                                    <a href="#" class="btn btn-light">Mehr erfahren...</a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="service-item">
-                                    <span class="fa-stack fa-4x">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-shield fa-stack-1x text-primary"></i>
-                                </span>
-                                    <h4>
-                                        <strong>noch etwas...</strong>
-                                    </h4>
-                                    <p>Kurze Beschreibung wie man es versteht. Hinter dem Link kann man dann mehr erfahren.</p>
-                                    <a href="#" class="btn btn-light">Mehr erfahren...</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.row (nested) -->
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">Individualität</h4>
+                        <p class="text-muted">Jedes Kind ist Einzigartig und so auch du...</p>
                     </div>
-                    <!-- /.col-lg-10 -->
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">Freude am Lernen</h4>
+                        <p class="text-muted">Wenn es keinen Spaß macht dann wirds schwierig</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">Druck rausnehmen</h4>
+                        <p class="text-muted">...ach was weiß ich...denk dir bitte etwas aus!</p>
+                    </div>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container -->
         </section>
 
-        <!-- Callout -->
         <aside class="callout">
             <div class="text-vertical-center">
                 <h1>Endlich raus aus der Frustspirale</h1>
             </div>
         </aside>
 
-        <!-- Portfolio -->
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 col-lg-offset-1 text-center">
-                        <h2>Das habe ich bisher so gemacht...</h2>
-                        <hr class="small">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="portfolio-item">
-                                    <a href="#">
-                                        <img class="img-portfolio img-responsive" src="{% static 'images/desk.jpg' %}">
-                                        <p>M.A. Integrative Lerntherapie</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="portfolio-item">
-                                    <a href="#">
-                                        <img class="img-portfolio img-responsive" src="{% static 'images/thought.jpg' %}">
-                                        <p>Staatsexamen Philosophie</p>
-                                        </img>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="portfolio-item">
-                                    <a href="#">
-                                        <img class="img-portfolio img-responsive" src="{% static 'images/globe.jpg' %}">
-                                        <p>Staatsexamen Geographie</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="portfolio-item">
-                                    <a href="#">
-                                        <img class="img-portfolio img-responsive" src="{% static 'images/portfolio-4.jpg' %}">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.row (nested) -->
-                        <!-- <a href="#" class="btn btn-dark">View More Items</a> -->
-                    </div>
-                    <!-- /.col-lg-10 -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container -->
-        </section>
-
-        <!-- Call to Action -->
-        <aside class="call-to-action bg-primary">
+        <!-- Leistungen Grid Section -->
+        <section id="activity" class="bg-light-gray">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h3>The buttons below are impossible to resist.</h3>
-                        <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-                        <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
+                        <h2 class="section-heading">Leistungen</h2>
+                        <h3 class="section-subheading text-muted">Dies sind die gängigsten Dinge aber wir finden auch für andere Dinge eine Lösung</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 activity-item">
+                        <a href="#activityModal1" class="activity-link" data-toggle="modal">
+                            <div class="activity-hover">
+                                <div class="activity-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="{% static 'images/activity/startup-framework.png' %}" class="img-responsive" alt="">
+                        </a>
+                        <div class="activity-caption">
+                            <h4>ADHS</h4>
+                            <p class="text-muted">Wububububu</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 activity-item">
+                        <a href="#activityModal2" class="activity-link" data-toggle="modal">
+                            <div class="activity-hover">
+                                <div class="activity-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="{% static 'images/activity/roundicons.png' %}" class="img-responsive" alt="">
+                        </a>
+                        <div class="activity-caption">
+                            <h4>Dyskalulie</h4>
+                            <p class="text-muted">Zahlen Zahlen Zahlen</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 activity-item">
+                        <a href="#activityModal3" class="activity-link" data-toggle="modal">
+                            <div class="activity-hover">
+                                <div class="activity-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="{% static 'images/activity/treehouse.png' %}" class="img-responsive" alt="">
+                        </a>
+                        <div class="activity-caption">
+                            <h4>LRS</h4>
+                            <p class="text-muted">Wechsstaben verbuchteln</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Das bin ich</h2>
+                        <h3 class="section-subheading text-muted">Hier ein nettes kleines Zitat eines Philosophen oder so...</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <img src="{% static 'images/team/3.jpg' %}" class="img-responsive img-circle" alt="">
+                            <h4>Nadine Brinner</h4>
+                            <p class="text-muted">M.A. Integrative Lerntherapie</p>
+<!--                             <ul class="list-inline social-buttons">
+                                <li><a href="#"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                            </ul>
+ -->                        
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <p class="large text-muted">Ich habe Geographie & Ethik auf Lehramt studiert und mich nach dem Studium besonders in freien Schulen engagiert...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clients Aside -->
+        <aside class="clients">
+            <div class="container">
+                Hier könnten Schulen hin, mit denen man zusammenarbeitet
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <a href="#">
+                            <img src="{% static 'images/logos/envato.jpg' %}" class="img-responsive img-centered" alt="">
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <a href="#">
+                            <img src="{% static 'images/logos/designmodo.jpg' %}" class="img-responsive img-centered" alt="">
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <a href="#">
+                            <img src="{% static 'images/logos/themeforest.jpg' %}" class="img-responsive img-centered" alt="">
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <a href="#">
+                            <img src="{% static 'images/logos/creative-market.jpg' %}" class="img-responsive img-centered" alt="">
+                        </a>
                     </div>
                 </div>
             </div>
         </aside>
 
-        <!-- Map -->
-        <section id="contact" class="map">
-            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-            <br />
-            <small>
-                <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-            </small>
-        </section>
 
-        <!-- Footer -->
-        <footer>
+        <!-- Kontakt Section -->
+        <section id="contact">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-10 col-lg-offset-1 text-center">
-                        <h4><strong>Deine Lerntherapeutin</strong>
-                        </h4>
-                        <p>21 Fakestreet
-                            <br>0815 Dresden</p>
-                        <ul class="list-unstyled">
-                            <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                            <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:info@deinelerntherapeutin.de">info@deinelerntherapeutin.de</a>
-                            </li>
-                        </ul>
-                        <br>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
-                            </li>
-                        </ul>
-                        <hr class="small">
-                        <p class="text-muted">Copyright &copy; Deine Lerntherapeutin 2017</p>
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Kontaktiere mich</h2>
+                        <h3 class="section-subheading text-muted">und wir vereinbaren einen Termin für ein erstes persönliches Gespräch.</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form name="sentMessage" id="contactForm" novalidate>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Dein Name" id="name" required data-validation-required-message="Bitte Namen eingeben">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Emailadresse" id="email" required data-validation-required-message="Bitte E-Mailadresse eingeben">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="tel" class="form-control" placeholder="Telefonnummer" id="phone" required data-validation-required-message="Telefonnummer angeben">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="Deine Nachricht" id="message" required data-validation-required-message="Bitte gib eine Nachricht ein"></textarea>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-lg-12 text-center">
+                                    <div id="success"></div>
+                                    <button type="submit" class="btn btn-xl">Nachricht senden</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="copyright">Copyright &copy; Deine Lerntherapeutin 2017</span>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline quicklinks">
+                            <li><a href="#">Privacy Policy</a>
+                            </li>
+                            <li><a href="#">Terms of Use</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </footer>
+
+        <!-- Leistungen Modals -->
+        <!-- Use the modals below to showcase details about your activity projects! -->
+
+        <!-- Leistungen Modal 1 -->
+        <div class="activity-modal modal fade" id="activityModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here -->
+                                    <h2>ADHS</h2>
+                                    <p class="item-intro text-muted">Was bedeutet das eigentlich und kann es sein, dass dieser Begriff ganz schön inflationär verwendet wird!?!</p>
+                                    <p>
+                                        <strong>Want these icons in this activity item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
+                                    <ul class="list-inline">
+                                        <li>Date: July 2014</li>
+                                        <li>Client: Round Icons</li>
+                                        <li>Category: Graphic Design</li>
+                                    </ul>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leistungen Modal 2 -->
+        <div class="activity-modal modal fade" id="activityModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="modal-body">
+                                    <h2>Project Heading</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-responsive img-centered" src="{% static 'images/activity/startup-framework-preview.png' %}" alt="">
+                                    <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
+                                    <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leistungen Modal 3 -->
+        <div class="activity-modal modal fade" id="activityModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here -->
+                                    <h2>Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-responsive img-centered" src="{% static 'images/activity/treehouse-preview.png' %}" alt="">
+                                    <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
+                                    <p>You can download the PSD template in this activity sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
