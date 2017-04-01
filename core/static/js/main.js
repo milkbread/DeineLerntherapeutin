@@ -23,15 +23,6 @@ require(['jQuery', 'boostrap', 'jquery.easing'], function($){
 	            		$('input[name=' + d + '], textarea[name=' + d + ']').next('p').append(span);
 	            	});
 	            });
-	            if(data.is_valid){
-	                $("#send-button").hide();
-	                $('#form-fields').empty();
-	                $('#thank-you').html(data.html);
-	            } else {
-	                $("#send-button").attr('disabled', false);
-	                $('#form-fields').html(data.html);
-	            }
-	            $("#wait-message").empty();
 	        }
 	    );
 	};

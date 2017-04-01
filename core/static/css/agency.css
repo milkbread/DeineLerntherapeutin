@@ -754,16 +754,12 @@ body {
 
 .callout {
     display: table;
-    width: 100%;
-    height: 400px;
     color: #fff;
-    background: url(../images/frust.jpg) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
-
 .text-vertical-center {
     display: table-cell;
     text-align: center;
