@@ -282,32 +282,39 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <form name="sentMessage" id="contactForm" novalidate>
+                        <!-- <form name="sentMessage" id="contactForm" novalidate> -->
+                        <form action="{% url 'send_contact' %}" method="post" id="contact-form">{% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Dein Name" id="name" required data-validation-required-message="Bitte Namen eingeben">
+                                        <input type="text" class="form-control" placeholder="Dein Name"
+                                            id="contact_name" name="contact_name" required data-validation-required-message="Bitte Namen eingeben">
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Emailadresse" id="email" required data-validation-required-message="Bitte E-Mailadresse eingeben">
+                                        <input type="email" class="form-control" placeholder="Emailadresse" 
+                                            id="contact_email" name="contact_email" required data-validation-required-message="Bitte E-Mailadresse eingeben">
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="form-group">
-                                        <input type="tel" class="form-control" placeholder="Telefonnummer" id="phone" required data-validation-required-message="Telefonnummer angeben">
+                                        <input type="tel" class="form-control" placeholder="Telefonnummer" 
+                                            id="contact_phone" name="contact_phone" required data-validation-required-message="Telefonnummer angeben">
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="Deine Nachricht" id="message" required data-validation-required-message="Bitte gib eine Nachricht ein"></textarea>
+                                        <textarea class="form-control" placeholder="Deine Nachricht" 
+                                            id="contact_content" name="contact_content" required data-validation-required-message="Bitte gib eine Nachricht ein"></textarea>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="col-lg-12 text-center">
-                                    <div id="success"></div>
                                     <button type="submit" class="btn btn-xl">Nachricht senden</button>
+                                    <div id="success" class="hidden">
+                                        <h4 class="alert alert-success">Vielen Dank für deine Anfrage, du erhälst in kürze Antwort!</h4>
+                                    </div>
                                 </div>
                             </div>
                         </form>

@@ -121,3 +121,21 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# DEFAULT_FROM_EMAIL = 'milkbread@freenet.de'
+# EMAIL_HOST = 'mx.freenet.de'
+# EMAIL_HOST_USER = 'milkbread@freenet.de'
+# EMAIL_HOST_PASSWORD = 'DiRP41FnK!'
+# EMAIL_USE_TLS = True 
+# EMAIL_PORT = 587
+
+EMAIL_DL_FROM = 'milkbread@freenet.de'
+EMAIL_DL_TO = 'milkbread@freenet.de'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+DEFAULT_FROM_EMAIL = 'testing@example.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False 
+EMAIL_PORT = 1025

@@ -1,5 +1,41 @@
 require(['jQuery', 'boostrap', 'jquery.easing'], function($){
 
+
+	var submitForm = function(e) {
+	    e.preventDefault();
+	    var self = $(this);
+	    $("#send-button").attr('disabled', true);
+	    $("#wait-message").prepend('<span>Sending message, please wait... </span>');
+	    $.post(
+	        self.attr('action'),
+	        self.serializeArray(),
+	        function(data) {
+            	if (data.response.status === 'success') {
+            		$('#success').removeClass('hidden');
+            		return;
+            	}
+	            $.each(data.errors, function(d) {
+	            	$('input[name=' + d + ']').addClass('alert-danger');
+	            	data.errors[d].forEach(function(d2) {
+	            		var span = $('<span>');
+	            		span.addClass('error')
+	            		span.text(d2);
+	            		$('input[name=' + d + '], textarea[name=' + d + ']').next('p').append(span);
+	            	});
+	            });
+	            if(data.is_valid){
+	                $("#send-button").hide();
+	                $('#form-fields').empty();
+	                $('#thank-you').html(data.html);
+	            } else {
+	                $("#send-button").attr('disabled', false);
+	                $('#form-fields').html(data.html);
+	            }
+	            $("#wait-message").empty();
+	        }
+	    );
+	};
+
 	$( document ).ready(function() {
 
 		// jQuery for page scrolling feature - requires jQuery Easing plugin
@@ -16,7 +52,6 @@ require(['jQuery', 'boostrap', 'jquery.easing'], function($){
 		    target: '.navbar-fixed-top',
 		    offset: 51
 		});
-		console.log($('.navbar-fixed-top'))
 
 		// Closes the Responsive Menu on Menu Item Click
 		$('.navbar-collapse ul li a').click(function(){ 
@@ -29,6 +64,8 @@ require(['jQuery', 'boostrap', 'jquery.easing'], function($){
 		        top: 100
 		    }
 		})
+
+		$("#contact-form").submit(submitForm);
 
 	});
 
