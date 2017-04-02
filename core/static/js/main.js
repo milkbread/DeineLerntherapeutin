@@ -58,6 +58,13 @@ require(['jQuery', 'boostrap', 'jquery.easing'], function($){
 
 		$("#contact-form").submit(submitForm);
 
+		$("#myModal").on("hidden.bs.modal", function () {
+		    // put your default event here
+		    console.log('nun')
+		    // $("#myModal .modal-content").html("");
+		    $(this).removeData();
+		});
+
 	});
 
 	console.log('main.js loaded');
